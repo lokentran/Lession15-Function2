@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Control Products</title>
+</head>
+<body>
+    <h1>Display All Products</h1>
+    <h2>Add new product</h2>
+    <input id="newProduct" type="text"><button onclick="add()">Add</button>
+    <table id="products">
+
+
+    </table>
+    
+   
+    <script>
+        let products = ['iphone', 'samsung', 'xiaomi'];
+        
+        function createTable() {
+            let txt = "";
+            for (let i = 0; i < products.length; i++) {
+                
+                txt += `<tr>
+                            <td>${products[i]}</td>
+                            <td><button onclick="edit(${i})">Edit</button></td>
+                            <td><button onclick="del(${i})">Delete</button></td>
+                        </tr>
+                        `;
+              
+            }
+            
+            document.getElementById('products').innerHTML = txt;
+        }
+
+        createTable();
+
+        function add() {
+            let value = document.getElementById('newProduct').value;
+            products.push(value);
+            createTable();
+        }
+
+        function edit(index) {
+            let newValue = prompt("Nhập giá trị mới");
+            products[index] = newValue;
+            createTable();
+        }
+
+        function del(index) {
+            products.splice(index,1);
+            createTable();
+        }
+
+    </script>
+</body>
+</html>
