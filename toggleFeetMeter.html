@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>Feet: <input id="feet" type="number" oninput="covertFeetToMeter()"></p>
+    <p>Meter: <input id="meter" type="number" oninput="covertMeterToFeet()"></p>
+
+    <script>
+        function covertFeetToMeter() {
+            let valueF = document.getElementById('feet').value;
+            let resultM = 0.305 * valueF;
+            document.getElementById('meter').value = resultM;
+        }
+        function covertMeterToFeet() {
+            let valueM = document.getElementById('feet').value;
+            let resultF = 3.279 * valueM;
+            document.getElementById('feet').value = resultF;
+        }
+
+
+    </script>
+
+</body>
+</html>
